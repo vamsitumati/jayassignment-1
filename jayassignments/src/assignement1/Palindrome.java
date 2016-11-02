@@ -1,14 +1,18 @@
 package assignement1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;     // importing scanner class
 
 public class Palindrome {
 	
 	
 	
-	public static void palin()
+	public static void palin() 
 	{
-		  int rev=0;
+		 try               // starting try block
+		 {
+			 int rev=0;
+		 
 		Scanner sc = new Scanner(System.in);      //using scanner to enter the number
 		System.out.println("Enter the number to check palindrome or not:");
 		int num= sc.nextInt();
@@ -16,7 +20,7 @@ public class Palindrome {
 		while(num !=0)
 		{
 			rev = rev*10;
-			rev = rev+ num%10;
+			rev = rev+ num%10;            //using mod
 			num = num/10;
 		}
 		
@@ -25,8 +29,15 @@ public class Palindrome {
 		
 		else
 			System.out.println("This number is not a palindrome");
-		
 		sc.close();
+		 }
+	
+		 catch(InputMismatchException e)
+		 {
+			 System.out.println("checked Exception occured:"+e);
+		 }
+		
+		
 	}
 	public static void main(String args[])
 	{
